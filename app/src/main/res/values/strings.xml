@@ -56,6 +56,8 @@
     <string name="msg_nenhum_resultado">Nenhum resultado encontrado.</string>
     <string name="msg_especie_obrigatoria">Selecione uma espécie.</string>
     <string name="msg_confirmar_exclusao">Deseja excluir este avistamento?</string>
+    <string name="acao_editar">Editar</string>
+    <string name="acao_excluir">Excluir</string>
 
     <!-- Arrays existentes -->
     <string-array name="especies_baleias">

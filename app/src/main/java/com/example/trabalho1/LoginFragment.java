@@ -72,7 +72,6 @@ public class LoginFragment extends Fragment {
     }
 
     private void mostrarDialogAlterarSenha() {
-        View dialogView = getLayoutInflater().inflate(android.R.layout.two_line_list_item, null);
         EditText editEmailDialog = new EditText(getContext());
         editEmailDialog.setHint(R.string.hint_email);
         EditText editNovaSenha = new EditText(getContext());
@@ -113,5 +112,11 @@ public class LoginFragment extends Fragment {
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        executor.shutdown();
     }
 }

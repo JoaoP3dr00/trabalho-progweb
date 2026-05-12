@@ -144,4 +144,10 @@ public class AvistamentoFormFragment extends Fragment {
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        executor.shutdown();
+    }
 }

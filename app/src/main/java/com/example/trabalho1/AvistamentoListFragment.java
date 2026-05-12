@@ -63,12 +63,12 @@ public class AvistamentoListFragment extends Fragment {
             new AlertDialog.Builder(getContext())
                     .setTitle(avistamento.especie)
                     .setMessage(avistamento.descricao)
-                    .setPositiveButton("Editar", (dialog, which) -> {
+                    .setPositiveButton(R.string.acao_editar, (dialog, which) -> {
                         Bundle args = new Bundle();
                         args.putInt("avistamentoId", avistamento.id);
                         NavHostFragment.findNavController(this).navigate(R.id.to_form, args);
                     })
-                    .setNegativeButton("Excluir", (dialog, which) -> excluir(avistamento))
+                    .setNegativeButton(R.string.acao_excluir, (dialog, which) -> excluir(avistamento))
                     .setNeutralButton(android.R.string.cancel, null)
                     .show();
             return true;
@@ -130,5 +130,11 @@ public class AvistamentoListFragment extends Fragment {
         listaAtual.clear();
         listaAtual.addAll(lista);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        executor.shutdown();
     }
 }
