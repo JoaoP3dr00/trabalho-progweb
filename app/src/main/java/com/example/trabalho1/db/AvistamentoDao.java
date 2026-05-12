@@ -27,4 +27,7 @@ public interface AvistamentoDao {
 
     @Query("SELECT * FROM avistamento WHERE especie LIKE '%' || :busca || '%' OR local LIKE '%' || :busca || '%' OR descricao LIKE '%' || :busca || '%' ORDER BY id DESC")
     List<Avistamento> buscar(String busca);
+
+    @Query("SELECT * FROM avistamento WHERE id = :id LIMIT 1")
+    Avistamento buscarPorId(int id);
 }

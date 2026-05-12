@@ -20,4 +20,7 @@ public interface UsuarioDao {
 
     @Query("UPDATE usuario SET senha = :novaSenha WHERE email = :email")
     void alterarSenha(String email, String novaSenha);
+
+    @Query("SELECT * FROM usuario WHERE id = :id LIMIT 1")
+    Usuario buscarPorId(int id);
 }

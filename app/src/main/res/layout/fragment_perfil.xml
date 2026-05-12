@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/fundo_login">
+
+    <ImageView
+        android:id="@+id/imageViewPerfilFoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/whales"
+        android:scaleType="centerCrop"
+        android:background="@color/azul_claro"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/desc_foto_usuario" />
+
+    <TextView
+        android:id="@+id/textViewBemVindo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bem_vindo"
+        android:textSize="20sp"
+        android:textColor="@color/azul_primario"
+        android:gravity="center"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textViewNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_primario"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnVerBaleias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ver_baleias"
+        android:backgroundTint="@color/azul_primario"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnVerAvistamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ver_avistamentos"
+        android:backgroundTint="@color/azul_primario"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnAlterarSenhaPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_alterar_senha"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnSair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_sair"
+        style="@style/Widget.Material3.Button.TextButton" />
+
+</LinearLayout>

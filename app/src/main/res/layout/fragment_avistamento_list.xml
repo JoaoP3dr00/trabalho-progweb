@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/fundo_avistamento">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_avistamentos"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_primario"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/editBusca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_busca"
+        android:inputType="text"
+        android:background="@android:color/white"
+        android:padding="10dp"
+        android:layout_marginBottom="8dp"
+        android:drawableEnd="@android:drawable/ic_menu_search"
+        android:drawablePadding="8dp" />
+
+    <Button
+        android:id="@+id/btnNovoAvistamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_novo_avistamento"
+        android:backgroundTint="@color/azul_primario"
+        android:layout_marginBottom="12dp" />
+
+    <ListView
+        android:id="@+id/listViewAvistamentos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/azul_claro"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>

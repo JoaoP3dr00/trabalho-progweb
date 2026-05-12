@@ -1,20 +1,80 @@
 <resources>
     <string name="app_name">Baleias</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Botões existentes -->
     <string name="btn_ir_curiosidades">Ver Curiosidades</string>
     <string name="btn_ir_galeria">Ver Galeria de Fotos</string>
     <string name="curiosidades">Curiosidades</string>
     <string name="galeria_de_baleias">Galeria de Baleias</string>
     <string name="selecione">Selecione alguma espécie para ouvir o som...</string>
 
+    <!-- Login / Cadastro -->
+    <string name="hint_email">E-mail</string>
+    <string name="hint_senha">Senha</string>
+    <string name="hint_nome">Nome completo</string>
+    <string name="hint_confirmar_senha">Confirmar senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="btn_cadastrar">Criar conta</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="btn_alterar_senha">Alterar senha</string>
+    <string name="btn_tirar_foto">Tirar foto</string>
+    <string name="btn_sair">Sair</string>
+    <string name="titulo_cadastro">Criar Conta</string>
+    <string name="desc_foto_usuario">Foto do usuário</string>
+
+    <!-- Perfil -->
+    <string name="bem_vindo">Bem-vindo(a),</string>
+    <string name="btn_ver_baleias">Ver Baleias</string>
+    <string name="btn_ver_avistamentos">Meus Avistamentos</string>
+
+    <!-- Avistamentos -->
+    <string name="titulo_avistamentos">Avistamentos de Baleias</string>
+    <string name="titulo_novo_avistamento">Novo Avistamento</string>
+    <string name="titulo_editar_avistamento">Editar Avistamento</string>
+    <string name="hint_busca">Buscar por espécie, local ou descrição…</string>
+    <string name="btn_novo_avistamento">+ Novo Avistamento</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_excluir">Excluir</string>
+    <string name="label_especie">Espécie</string>
+    <string name="label_local">Local do Avistamento</string>
+    <string name="label_data">Data</string>
+    <string name="label_descricao">Descrição</string>
+    <string name="hint_local">Ex: Praia de Itaipava, SC</string>
+    <string name="hint_data">DD/MM/AAAA</string>
+    <string name="hint_descricao">Descreva o avistamento…</string>
+
+    <!-- Mensagens -->
+    <string name="msg_login_erro">E-mail ou senha incorretos.</string>
+    <string name="msg_campos_obrigatorios">Preencha todos os campos obrigatórios.</string>
+    <string name="msg_email_existe">Este e-mail já está cadastrado.</string>
+    <string name="msg_senhas_diferentes">As senhas não coincidem.</string>
+    <string name="msg_cadastro_sucesso">Conta criada com sucesso! Faça login.</string>
+    <string name="msg_senha_alterada">Senha alterada com sucesso!</string>
+    <string name="msg_avistamento_salvo">Avistamento salvo!</string>
+    <string name="msg_avistamento_excluido">Avistamento excluído.</string>
+    <string name="msg_nenhum_resultado">Nenhum resultado encontrado.</string>
+    <string name="msg_especie_obrigatoria">Selecione uma espécie.</string>
+    <string name="msg_confirmar_exclusao">Deseja excluir este avistamento?</string>
+
+    <!-- Arrays existentes -->
     <string-array name="especies_baleias">
         <item>Selecione uma espécie...</item>
         <item>Baleia Jubarte</item>
         <item>Baleia Azul</item>
         <item>Orca</item>
         <item>Beluga</item>
+    </string-array>
+
+    <string-array name="especies_baleias_form">
+        <item>Selecione...</item>
+        <item>Baleia Jubarte</item>
+        <item>Baleia Azul</item>
+        <item>Orca</item>
+        <item>Beluga</item>
+        <item>Cachalote</item>
+        <item>Baleia-franca</item>
+        <item>Outra</item>
     </string-array>
 
     <string-array name="lista_curiosidades">

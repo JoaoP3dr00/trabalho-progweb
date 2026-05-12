@@ -3,13 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/firstFragment">
+    app:startDestination="@+id/loginFragment">
 
+    <!-- ===== LOGIN ===== -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.trabalho1.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/to_register"
+            app:destination="@+id/registerFragment" />
+
+        <action
+            android:id="@+id/to_perfil"
+            app:destination="@+id/perfilFragment"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- ===== CADASTRO ===== -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.trabalho1.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+
+    <!-- ===== PERFIL (Home pós-login) ===== -->
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.trabalho1.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil">
+
+        <action
+            android:id="@+id/to_baleias"
+            app:destination="@+id/firstFragment" />
+
+        <action
+            android:id="@+id/to_avistamentos"
+            app:destination="@+id/avistamentoListFragment" />
+
+        <action
+            android:id="@+id/to_logout"
+            app:destination="@+id/loginFragment"
+            app:popUpTo="@+id/perfilFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- ===== BALEIAS (telas originais) ===== -->
     <fragment
         android:id="@+id/firstFragment"
         android:name="com.example.trabalho1.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        tools:layout="@layout/fragment_first">
 
         <action
             android:id="@+id/to_third"
@@ -31,5 +79,29 @@
         android:name="com.example.trabalho1.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" />
+
+    <!-- ===== AVISTAMENTOS ===== -->
+    <fragment
+        android:id="@+id/avistamentoListFragment"
+        android:name="com.example.trabalho1.AvistamentoListFragment"
+        android:label="fragment_avistamento_list"
+        tools:layout="@layout/fragment_avistamento_list">
+
+        <action
+            android:id="@+id/to_form"
+            app:destination="@+id/avistamentoFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/avistamentoFormFragment"
+        android:name="com.example.trabalho1.AvistamentoFormFragment"
+        android:label="fragment_avistamento_form"
+        tools:layout="@layout/fragment_avistamento_form">
+
+        <argument
+            android:name="avistamentoId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>
