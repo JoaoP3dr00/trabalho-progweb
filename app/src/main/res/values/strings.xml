@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Baleias</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="btn_ir_curiosidades">Ver Curiosidades</string>
+    <string name="btn_ir_galeria">Ver Galeria de Fotos</string>
+    <string name="curiosidades">Curiosidades</string>
+    <string name="galeria_de_baleias">Galeria de Baleias</string>
+    <string name="selecione">Selecione alguma espécie para ouvir o som...</string>
+
+    <string-array name="especies_baleias">
+        <item>Selecione uma espécie...</item>
+        <item>Baleia Jubarte</item>
+        <item>Baleia Azul</item>
+        <item>Orca</item>
+        <item>Beluga</item>
+    </string-array>
+
+    <string-array name="lista_curiosidades">
+        <item>A baleia azul é o maior animal do planeta.</item>
+        <item>Jubartes viajam milhares de quilômetros para acasalar.</item>
+        <item>Orcas são golfinhos, não baleias.</item>
+        <item>Belugas são chamadas de "canários do mar".</item>
+    </string-array>
+</resources>
