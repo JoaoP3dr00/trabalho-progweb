@@ -23,4 +23,23 @@
         <item>Orcas são golfinhos, não baleias.</item>
         <item>Belugas são chamadas de "canários do mar".</item>
     </string-array>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="nome">Nome</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="entrar">Entrar</string>
+    <string name="tirar_foto">Tirar Foto</string>
+    <string name="salvar">Salvar</string>
+    <string name="titulo">Título</string>
+    <string name="descricao">Descrição</string>
+    <string name="buscar">Buscar...</string>
+    <string name="nova_tarefa">Nova Tarefa</string>
+    <string name="alterar_senha">Alterar Senha</string>
+    <string name="logout">Sair</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="login_sucesso">Login realizado com sucesso!</string>
+    <string name="login_erro">Email ou senha incorretos.</string>
+    <string name="usuario_cadastrado">Usuário cadastrado com sucesso!</string>
 </resources>

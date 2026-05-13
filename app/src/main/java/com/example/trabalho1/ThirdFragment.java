@@ -7,7 +7,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.trabalho1.BaleiaAdapter;
 
 public class ThirdFragment extends Fragment {
