@@ -31,19 +31,26 @@ public class LoginFragment extends Fragment {
         AppDatabase db = AppDatabase.getDatabase(requireContext());
 
         btnEntrar.setOnClickListener(v -> {
-            String email = etEmail.getText().toString();
-            String senha = etSenha.getText().toString();
+            String email = etEmail.getText().toString().trim();
+            String senha = etSenha.getText().toString().trim();
 
-            Usuario usuario = db.appDao().logarUsuario(email, senha);
+            String senhaHash = SecurityUtils.hashSenha(senha);
+            Usuario usuario = db.appDao().logarUsuario(email, senhaHash);
 
             if (usuario != null) {
                 tocarSomSucesso();
-                Bundle bundle = new Bundle();
-                bundle.putString("userName", usuario.nome);
-                bundle.putString("userFoto", usuario.fotoUri);
-                
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.to_dashboard, bundle);
+                if (usuario.isAdmin) {
+                    NavHostFragment.findNavController(this)
+                            .navigate(R.id.to_admin_dashboard);
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("userId", usuario.id);
+                    bundle.putString("userName", usuario.nome);
+                    bundle.putString("userFoto", usuario.fotoUri);
+
+                    NavHostFragment.findNavController(this)
+                            .navigate(R.id.to_dashboard, bundle);
+                }
             } else {
                 Toast.makeText(getContext(), R.string.login_erro, Toast.LENGTH_SHORT).show();
             }
@@ -52,6 +59,11 @@ public class LoginFragment extends Fragment {
         btnIrCadastro.setOnClickListener(v -> {
             NavHostFragment.findNavController(this)
                     .navigate(R.id.to_cadastro);
+        });
+
+        view.findViewById(R.id.tvEsqueciSenha).setOnClickListener(v -> {
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.to_recuperar_senha);
         });
     }
 

@@ -36,6 +36,7 @@ public class TarefaFragment extends Fragment {
     private ArrayAdapter<String> adapter;
     private List<String> titulosTarefas = new ArrayList<>();
     private AppDatabase db;
+    private int userId = -1;
 
     public TarefaFragment() {
         super(R.layout.fragment_tarefas);
@@ -45,6 +46,9 @@ public class TarefaFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        if (getArguments() != null) {
+            userId = getArguments().getInt("userId", -1);
+        }
     }
 
     @Override
@@ -77,9 +81,9 @@ public class TarefaFragment extends Fragment {
 
     private void atualizarLista(String busca) {
         if (busca.isEmpty()) {
-            listaTarefas = db.appDao().listarTarefas();
+            listaTarefas = db.appDao().listarTarefasPorUsuario(userId);
         } else {
-            listaTarefas = db.appDao().buscarTarefa("%" + busca + "%");
+            listaTarefas = db.appDao().buscarTarefaPorUsuario(userId, "%" + busca + "%");
         }
 
         titulosTarefas.clear();
@@ -106,6 +110,7 @@ public class TarefaFragment extends Fragment {
             Tarefa t = (tarefaExistente != null) ? tarefaExistente : new Tarefa();
             t.titulo = etTitulo.getText().toString();
             t.descricao = etDesc.getText().toString();
+            t.usuarioId = userId;
 
             if (tarefaExistente == null) {
                 db.appDao().inserirTarefa(t);

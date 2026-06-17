@@ -5,7 +5,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Usuario.class, Tarefa.class}, version = 1)
+@Database(entities = {Usuario.class, Tarefa.class, BaleiaFavorita.class}, version = 6)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract AppDao appDao();
 
@@ -18,10 +18,24 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     AppDatabase.class, "trabalho1_db")
                             .allowMainThreadQueries()
+                            .fallbackToDestructiveMigration()
                             .build();
+                    seedAdmin(INSTANCE);
                 }
             }
         }
         return INSTANCE;
+    }
+
+    private static void seedAdmin(AppDatabase db) {
+        if (db.appDao().buscarPorEmail("admin@seatask.com") == null) {
+            Usuario admin = new Usuario();
+            admin.nome = "Administrador";
+            admin.email = "admin@seatask.com";
+            admin.senha = com.example.trabalho1.SecurityUtils.hashSenha("admin123");
+            admin.palavraChave = "master";
+            admin.isAdmin = true;
+            db.appDao().inserirUsuario(admin);
+        }
     }
 }

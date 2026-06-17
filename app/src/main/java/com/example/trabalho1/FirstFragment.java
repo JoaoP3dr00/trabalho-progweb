@@ -34,8 +34,12 @@ public class FirstFragment extends Fragment {
         btnGaleria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                if (getArguments() != null) {
+                    bundle.putInt("userId", getArguments().getInt("userId"));
+                }
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.to_third);
+                        .navigate(R.id.to_third, bundle);
             }
         });
 

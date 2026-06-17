@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,8 @@ public class EdicaoTarefaFragment extends Fragment {
         etDescricao = view.findViewById(R.id.etEditDescricao);
         Button btnSalvar = view.findViewById(R.id.btnSalvarEdicao);
         Button btnExcluir = view.findViewById(R.id.btnExcluirTarefa);
+        Button btnFavoritar = view.findViewById(R.id.btnFavoritarTarefa);
+        Button btnCompartilhar = view.findViewById(R.id.btnCompartilharTarefa);
 
         if (getArguments() != null) {
             tarefaId = getArguments().getInt("tarefaId");
@@ -42,8 +45,18 @@ public class EdicaoTarefaFragment extends Fragment {
             if (tarefa != null) {
                 etTitulo.setText(tarefa.titulo);
                 etDescricao.setText(tarefa.descricao);
+                btnFavoritar.setText(tarefa.favorito ? "Remover dos Favoritos" : "Favoritar");
             }
         }
+
+        btnFavoritar.setOnClickListener(v -> {
+            if (tarefa != null) {
+                tarefa.favorito = !tarefa.favorito;
+                db.appDao().atualizarTarefa(tarefa);
+                btnFavoritar.setText(tarefa.favorito ? "Remover dos Favoritos" : "Favoritar");
+                Toast.makeText(getContext(), tarefa.favorito ? "Adicionado aos favoritos!" : "Removido dos favoritos!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         btnSalvar.setOnClickListener(v -> {
             if (tarefa != null) {
@@ -60,6 +73,17 @@ public class EdicaoTarefaFragment extends Fragment {
                 db.appDao().deletarTarefa(tarefa);
                 Toast.makeText(getContext(), "Tarefa excluída!", Toast.LENGTH_SHORT).show();
                 NavHostFragment.findNavController(this).popBackStack();
+            }
+        });
+
+        btnCompartilhar.setOnClickListener(v -> {
+            if (tarefa != null) {
+                String texto = "Tarefa: " + tarefa.titulo + "\nDescrição: " + tarefa.descricao;
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "SeaTask - Compartilhamento");
+                intent.putExtra(Intent.EXTRA_TEXT, texto);
+                startActivity(Intent.createChooser(intent, "Compartilhar tarefa via:"));
             }
         });
     }

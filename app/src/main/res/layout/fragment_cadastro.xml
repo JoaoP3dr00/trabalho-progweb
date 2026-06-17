@@ -53,6 +53,13 @@
             android:hint="@string/senha"
             android:inputType="textPassword"/>
 
+        <EditText
+            android:id="@+id/etPalavraChave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Palavra-chave (para recuperar senha)"
+            android:inputType="text"/>
+
         <Button
             android:id="@+id/btnSalvarUsuario"
             android:layout_width="match_parent"

@@ -12,4 +12,6 @@ public class Usuario {
     public String email;
     public String senha;
     public String fotoUri;
+    public String palavraChave;
+    public boolean isAdmin;
 }

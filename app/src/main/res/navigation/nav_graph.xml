@@ -16,7 +16,44 @@
         <action
             android:id="@+id/to_dashboard"
             app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/to_admin_dashboard"
+            app:destination="@id/adminDashboardFragment" />
+        <action
+            android:id="@+id/to_recuperar_senha"
+            app:destination="@id/recuperarSenhaFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.example.trabalho1.AdminDashboardFragment"
+        android:label="Admin Dashboard"
+        tools:layout="@layout/fragment_admin_dashboard">
+        <action
+            android:id="@+id/to_usuarios"
+            app:destination="@id/usuariosFragment" />
+        <action
+            android:id="@+id/to_relatorio"
+            app:destination="@id/relatorioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/relatorioFragment"
+        android:name="com.example.trabalho1.RelatorioFragment"
+        android:label="Relatório"
+        tools:layout="@layout/fragment_relatorio" />
+
+    <fragment
+        android:id="@+id/usuariosFragment"
+        android:name="com.example.trabalho1.UsuariosFragment"
+        android:label="Usuários"
+        tools:layout="@layout/fragment_usuarios" />
+
+    <fragment
+        android:id="@+id/recuperarSenhaFragment"
+        android:name="com.example.trabalho1.RecuperarSenhaFragment"
+        android:label="Recuperar Senha"
+        tools:layout="@layout/fragment_recuperar_senha" />
 
     <fragment
         android:id="@+id/cadastroFragment"
@@ -35,7 +72,16 @@
         <action
             android:id="@+id/to_tarefa_fragment"
             app:destination="@id/tarefaFragment" />
+        <action
+            android:id="@+id/to_favoritos"
+            app:destination="@id/favoritosFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.example.trabalho1.FavoritosFragment"
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favoritos" />
 
     <fragment
         android:id="@+id/tarefaFragment"

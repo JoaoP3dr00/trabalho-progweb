@@ -67,6 +67,7 @@ public class CadastroFragment extends Fragment {
         EditText etNome = view.findViewById(R.id.etNome);
         EditText etEmail = view.findViewById(R.id.etEmailCadastro);
         EditText etSenha = view.findViewById(R.id.etSenhaCadastro);
+        EditText etPalavraChave = view.findViewById(R.id.etPalavraChave);
         Button btnSalvar = view.findViewById(R.id.btnSalvarUsuario);
 
         btnFoto.setOnClickListener(v -> {
@@ -78,16 +79,38 @@ public class CadastroFragment extends Fragment {
         });
 
         btnSalvar.setOnClickListener(v -> {
-            Usuario u = new Usuario();
-            u.nome = etNome.getText().toString();
-            u.email = etEmail.getText().toString();
-            u.senha = etSenha.getText().toString();
-            u.fotoUri = (fotoUri != null) ? fotoUri.toString() : "";
+            String nome = etNome.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String senha = etSenha.getText().toString().trim();
+            String palavraChave = etPalavraChave.getText().toString().trim();
 
-            if (u.nome.isEmpty() || u.email.isEmpty() || u.senha.isEmpty()) {
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || palavraChave.isEmpty()) {
                 Toast.makeText(getContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(getContext(), "Formato de e-mail inválido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (senha.length() < 6 || !senha.matches(".*[0-9].*") || !senha.matches(".*[a-zA-Z].*")) {
+                Toast.makeText(getContext(), "A senha deve ter pelo menos 6 caracteres, incluindo letras e números", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            AppDatabase db = AppDatabase.getDatabase(requireContext());
+            if (db.appDao().buscarPorEmail(email) != null) {
+                Toast.makeText(getContext(), "Este e-mail já está cadastrado", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Usuario u = new Usuario();
+            u.nome = nome;
+            u.email = email;
+            u.senha = SecurityUtils.hashSenha(senha);
+            u.palavraChave = palavraChave;
+            u.fotoUri = (fotoUri != null) ? fotoUri.toString() : "";
 
             AppDatabase.getDatabase(requireContext()).appDao().inserirUsuario(u);
             Toast.makeText(getContext(), R.string.usuario_cadastrado, Toast.LENGTH_SHORT).show();
